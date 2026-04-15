@@ -16,7 +16,7 @@ CREATE TABLE core.location_staff (
     id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     location_id     UUID NOT NULL REFERENCES core.locations(id) ON DELETE CASCADE,
     user_id         UUID NOT NULL REFERENCES core.users(id) ON DELETE CASCADE,
-    role            TEXT NOT NULL CHECK (role IN ('admin', 'staff', 'specialist')),
+    role            TEXT NOT NULL CHECK (role IN ('admin', 'staff', 'specialist', 'accountant')),
     is_active       BOOLEAN DEFAULT true,
     created_at      TIMESTAMPTZ DEFAULT now(),
     updated_at      TIMESTAMPTZ DEFAULT now(),
